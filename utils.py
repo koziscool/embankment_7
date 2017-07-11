@@ -1,6 +1,7 @@
 
-factorial = lambda n: reduce( lambda x, y: x*y, [1]+range(1, n))
+factorial = lambda n: reduce( lambda x, y: x*y, [1]+range(1, n+1))
 combinations = lambda n, r: factorial(n) / factorial(r) / factorial(n-r)
+
 is_pal = lambda n: int(str(n)[::-1]) == n
 
 def primes_up_to(limit):
@@ -48,3 +49,5 @@ def factorize_into_primes( n, primes ):
         primes_index += 1
     return prime_factors
 
+def num_divisors( n, primes ):
+    return 'koz'
