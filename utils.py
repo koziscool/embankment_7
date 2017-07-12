@@ -1,7 +1,8 @@
 
+from collections import defaultdict
+
 factorial = lambda n: reduce( lambda x, y: x*y, [1]+range(1, n+1))
 combinations = lambda n, r: factorial(n) / factorial(r) / factorial(n-r)
-
 is_pal = lambda n: int(str(n)[::-1]) == n
 
 def primes_up_to(limit):
@@ -50,4 +51,12 @@ def factorize_into_primes( n, primes ):
     return prime_factors
 
 def num_divisors( n, primes ):
-    return 'koz'
+    current_quotient, factors_dict, primes_index = n, defaultdict(int), 0
+    while current_quotient > 1:
+        p = primes[ primes_index ]
+        while current_quotient % p == 0:
+            current_quotient /= p
+            factors_dict[p] += 1
+        primes_index += 1
+
+    return reduce( lambda x,y: x*y, map( lambda n: n+1, factors_dict.values() ), 1 ) 
