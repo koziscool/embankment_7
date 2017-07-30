@@ -8,7 +8,6 @@ def e18():
     for l in lines:
         numbers.append( [ int(s) for s in l.strip().split(' ') ] )
         max_path_sums.append( [ 0 for _ in l.strip().split(' ') ] )
-    # print numbers
 
     for i in xrange( len(numbers) ):
         if i == 0:
